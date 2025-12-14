@@ -1,0 +1,216 @@
+<div class="filters-component">
+  <div class="filters-wrapper">
+
+  
+
+    <!-- SCROLL -->
+    <div class="filters-scroll" id="filtersScroll">
+      <button class="filter-chip">
+        <i class="fa-solid fa-bed"></i>
+        <span>Rooms</span>
+      </button>
+      <button class="filter-chip">
+        <i class="fa-solid fa-mountain-sun"></i>
+        <span>Amazing views</span>
+      </button>
+      <button class="filter-chip">
+        <i class="fa-solid fa-city"></i>
+        <span>Iconic cities</span>
+      </button>
+      <button class="filter-chip">
+        <i class="fa-solid fa-water"></i>
+        <span>Surfing</span>
+      </button>
+      <button class="filter-chip">
+        <i class="fa-solid fa-person-swimming"></i>
+        <span>Pools</span>
+      </button>
+      <button class="filter-chip">
+        <i class="fa-solid fa-umbrella-beach"></i>
+        <span>Beach</span>
+      </button>
+      <button class="filter-chip">
+        <i class="fa-solid fa-house"></i>
+        <span>Cabins</span>
+      </button>
+    </div>
+
+   
+
+    <!-- CONTROLS -->
+
+    <div class="controls">
+      <div class="dropdown PcDrop">
+          <button 
+            class="btn btn-outline-dark d-flex align-items-center gap-1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="fa-solid fa-sliders"></i>
+            Filters
+          </button>
+
+
+        <div class="dropdown-menu p-3 shadow" style="min-width: 220px;">
+          <h6 class="dropdown-header">Filters</h6>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="wifi">
+            <label class="form-check-label" for="wifi">Wi-Fi</label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="ac">
+            <label class="form-check-label" for="ac">AC</label>
+          </div>
+        </div>
+      </div>
+
+          <!-- MOBILE ONLY -->
+          <button 
+            class="btn btn-outline-dark d-md-none d-flex align-items-center gap-1"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#mobileFilters">
+            <i class="fa-solid fa-sliders"></i>
+            Filters
+          </button>
+<div class="offcanvas offcanvas-bottom d-md-none" id="mobileFilters">
+
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Filters</h5>
+    <button class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+
+  <!-- IMPORTANT PART -->
+  <div class="offcanvas-body d-flex flex-column">
+
+    <!-- TOP CONTENT (fills space) -->
+    <div class="flex-grow-1">
+
+      <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" id="wifiMobile">
+        <label class="form-check-label" for="wifiMobile">Wi-Fi</label>
+      </div>
+
+      <div class="form-check mb-4">
+        <input class="form-check-input" type="checkbox" id="acMobile">
+        <label class="form-check-label" for="acMobile">AC</label>
+      </div>
+
+      <!-- FILTER CHIPS -->
+      <div class="d-flex flex-wrap gap-2">
+        <button class="filter-chip">
+          <i class="fa-solid fa-bed"></i>
+          <span>Rooms</span>
+        </button>
+
+        <button class="filter-chip">
+          <i class="fa-solid fa-mountain-sun"></i>
+          <span>Amazing views</span>
+        </button>
+
+        <button class="filter-chip">
+          <i class="fa-solid fa-city"></i>
+          <span>Iconic cities</span>
+        </button>
+
+        <button class="filter-chip">
+          <i class="fa-solid fa-water"></i>
+          <span>Surfing</span>
+        </button>
+
+        <button class="filter-chip">
+          <i class="fa-solid fa-person-swimming"></i>
+          <span>Pools</span>
+        </button>
+
+        <button class="filter-chip">
+          <i class="fa-solid fa-umbrella-beach"></i>
+          <span>Beach</span>
+        </button>
+
+        <button class="filter-chip">
+          <i class="fa-solid fa-house"></i>
+          <span>Cabins</span>
+        </button>
+      </div>
+
+    </div>
+
+    <hr>
+
+    <!-- BOTTOM ACTION (sticks to bottom) -->
+    <button 
+      class="btn btn-dark w-100 mt-auto"
+      data-bs-dismiss="offcanvas">
+      Apply Filters
+    </button>
+
+  </div>
+</div>
+
+
+
+
+
+      <div class="toggle-tax">
+        <div class="form-check form-switch form-check-reverse">
+          <input class="form-check-input" type="checkbox" id="switchCheckReverse">
+          <label class="form-check-label" for="switchCheckReverse">Show Prices After tax </label>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  console.log("INLINE SCRIPT LOADED");
+
+
+/* Toggle */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const taxSwitch = document.getElementById("switchCheckReverse");
+  if (!taxSwitch) return; // page doesn't have toggle
+
+  const prices = document.querySelectorAll(".listing-price");
+  const TAX_RATE = 0.18; // 18%
+
+  function formatINR(amount) {
+    return amount.toLocaleString("en-IN");
+  }
+
+  function updatePrices(showTax) {
+    prices.forEach(el => {
+      const base = Number(el.dataset.basePrice);
+      if (!base) return;
+
+      const finalPrice = showTax
+        ? Math.round(base * (1 + TAX_RATE))
+        : base;
+
+      el.textContent = formatINR(finalPrice);
+    });
+  }
+
+  // initial load
+  updatePrices(taxSwitch.checked);
+
+  // toggle change
+  taxSwitch.addEventListener("change", () => {
+    updatePrices(taxSwitch.checked);
+    localStorage.setItem("showTax", taxSwitch.checked);
+  });
+
+  // persist state
+  const saved = localStorage.getItem("showTax");
+  if (saved !== null) {
+    taxSwitch.checked = saved === "true";
+    updatePrices(taxSwitch.checked);
+  }
+
+});
+
+
+</script>

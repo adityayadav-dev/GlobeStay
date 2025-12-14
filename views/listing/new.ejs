@@ -1,0 +1,79 @@
+<% layout("/layout/boilerplate.ejs") %>
+<body class="bg-light">
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-5">
+        <div class="card shadow-lg border-0 p-4 form-card">
+          <h3 class="text-center mb-4 text-primary fw-semibold">
+            <i class="fa-solid fa-plus-circle me-2"></i> Create New Listing
+          </h3>
+
+          <form action="/listings" method="POST" novalidate  class="needs-validation" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Title</label>
+              <input type="text" class="form-control" name="listing[title]" placeholder="Enter Title" required >
+              <div class="valid-feedback">
+                Title Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Please choose a Title.
+              </div>              
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Description</label>
+              <textarea class="form-control" name="listing[description]" placeholder="Enter Description" rows="3" required></textarea>
+              
+              <div class="invalid-feedback">
+                Please Enter a Description!
+              </div>
+            </div>
+
+            <!-- <div class="mb-3">
+              <label class="form-label fw-semibold">Image URL</label>
+              <input type="text" class="form-control" name="listing[image]" placeholder="Enter Image URL" >
+            </div> -->
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Upload Listing Image</label>
+              <input type="file" class="form-control" name="listing[image]"  >
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Price (₹)</label>
+              <input type="number" class="form-control" name="listing[price]" placeholder="Enter Price" required>
+              
+              <div class="invalid-feedback">
+                Please Enter Price!
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Location</label>
+              <input type="text" class="form-control" name="listing[location]" placeholder="Enter Location" required>
+                          
+              <div class="invalid-feedback">
+                Location is Required!
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label fw-semibold">Country</label>
+              <input type="text" class="form-control" name="listing[country]" placeholder="Enter Country" required>
+              <div class="invalid-feedback">
+                Country is Required!
+              </div>
+            </div>
+
+            <div class="d-grid">
+              <button class="btn btn-primary btn-lg create-btn" type="submit">
+                <i class="fa-solid fa-paper-plane me-2"></i> Create Listing
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>   
+

@@ -1,0 +1,260 @@
+body{
+    display: flex;
+    flex-direction: column;
+        min-height: 100vh;
+}
+.container{
+    flex: 1;
+    
+}
+/* .navbar{
+    height: 5rem;
+
+} */
+.nav-link {
+    color: #000000 !important;
+
+}
+
+.nav-link:hover {
+    color: #535353 !important;
+    transform: scale(0.9);
+}
+
+/* Footer  */
+.f-info-links,
+.f-socials,
+.f-brand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    vertical-align: middle;
+}
+
+.f-socials i {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.f-info {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    background-color: #ebebeb;
+
+    height: 8rem;
+}
+
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+/* Cards */
+.listing-card {
+  transition: all 0.3s ease;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.listing-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.card-text {
+  font-size: 0.95rem;
+}
+
+.btn-outline-primary {
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+
+.btn-outline-primary:hover {
+  background-color: #B197FC !important; 
+  border-color: #B197FC !important;
+  color: rgb(255, 255, 255) !important;
+}
+.listing-card a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.listing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+.card-img-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+
+/* Forms */
+
+.form-card {
+  border-radius: 20px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.form-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.form-control {
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+}
+
+.form-control:focus {
+  border-color: #B197FC !important;
+  box-shadow: 0 0 6px rgba(177,151,252,0.4)  !important;
+}
+
+.create-btn {
+  background-color: #B197FC !important;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.create-btn:hover {
+  background-color: #9676f6 !important;
+  transform: translateY(-2px);
+}
+
+
+/* show */
+.listing-hero img {
+  height: 420px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px  #B197FC;
+  position: relative;
+}
+
+.listing-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  background: linear-gradient(to bottom, #b097fc11, rgba(0,0,0,0));
+}
+
+
+.listing-header {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 15px;
+}
+
+.listing-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.listing-location {
+  font-size: 1rem;
+}
+
+.listing-price {
+  color: #B197FC; /* your brand color */
+}
+
+.listing-description {
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.btn-outline-primary, .btn-outline-danger {
+  border-radius: 10px;
+  padding: 10px 16px;
+  transition: 0.2s;
+}
+
+.btn-outline-primary:hover {
+  background-color: #B197FC;
+  color: white;
+  border-color: #B197FC;
+}
+
+.btn-outline-danger:hover {
+  background-color: #f06666;
+  color: white;
+  border-color: #f06666;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .listing-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .listing-price {
+    font-size: 1.5rem;
+  }
+}
+
+/* listing */
+h3 .listing-heading {
+  color: #B197FC !important;      /* Force theme color */
+  font-weight: 600 !important;    /* Semi-bold */
+  font-size: 2rem !important;     /* Bigger size */
+  font-family: 'Poppins', sans-serif !important; /* Modern font */
+  letter-spacing: 0.5px !important;
+}
+
+h3 .listing-heading i {
+  color: #9676f6 !important;
+  transition: transform 0.3s ease;
+}
+
+h3 .listing-heading i:hover {
+  transform: rotate(20deg);
+}
+
+.review-section {
+  background-color: transparent;
+  border: none;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+.review-section textarea {
+  border-radius: 0.6rem;
+  border: 1px solid #ddd;
+}
+
+.review-section button {
+  border-radius: 0.6rem;
+}
+.btn.text-danger:hover {
+  background-color: #ffe5e5 !important;
+}

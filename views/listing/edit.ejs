@@ -1,0 +1,75 @@
+<% layout("/layout/boilerplate.ejs") %>
+<body class="bg-light">
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-5">
+        <div class="card shadow-lg border-0 p-4 form-card">
+          <h3 class="text-center mb-4 t fw-semibold">
+            <i class="fa-solid fa-edit me-2"></i> Edit Listing
+          </h3>
+
+          <form action="/listings/<%= listing._id %>?_method=PUT" method="POST" novalidate  class="needs-validation" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Title</label>
+              <input type="text" class="form-control" name="listing[title]" value="<%= listing.title %>" required>
+              <div class="invalid-feedback">
+                Please choose a Title.
+              </div> 
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Description</label>
+              <textarea class="form-control" name="listing[description]" required rows="3"><%= listing.description %></textarea>
+              <div class="invalid-feedback">
+                Please Enter Description!
+              </div>
+            </div>
+
+            <div class="mb-3">
+              Original Listing Image <br>
+              <img src="<%=OgUrl%>" height="150" width="250" alt="">
+              
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Upload Updated Image </label>
+              <input type="file" class="form-control" name="listing[image]"  >
+              
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Price (₹)</label>
+              <input type="number" class="form-control" name="listing[price]" value="<%= listing.price %>" required>
+              <div class="invalid-feedback">
+                Please Enter Price!
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Location</label>
+              <input type="text" class="form-control" required name="listing[location]" value="<%= listing.location %>">
+              <div class="invalid-feedback">
+                Location is Required!
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label fw-semibold">Country</label>
+              <input type="text" class="form-control" required name="listing[country]" value="<%= listing.country %>">
+              <div class="invalid-feedback">
+                Country is Required!
+              </div>
+            </div>
+
+            <div class="d-grid">
+              <button class="btn btn-primary btn-lg edit-btn" type="submit">
+                <i class="fa-solid fa-check me-2"></i> Save Changes
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </body>
+

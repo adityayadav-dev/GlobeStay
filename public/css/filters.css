@@ -1,0 +1,114 @@
+/* ================================
+   FILTER BAR (AIRBNB STYLE)
+================================ */
+
+.filters-component {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.filters-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+}
+
+/* SCROLL */
+.filters-scroll {
+  display: flex;
+  gap: 26px;
+  overflow-x: auto;
+  padding: 6px 50px;
+}
+.filters-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* CHIPS */
+.filter-chip {
+  background: none;
+  border: none;
+  padding: 6px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  color: #717171;
+  font-size: 12px;
+  min-width: 72px;
+}
+
+.filter-chip i {
+  font-size: 18px;
+}
+
+.filter-chip:hover {
+  color: #000;
+}
+
+.filter-chip.active {
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+
+/* ARROWS */
+.scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: #fff;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+
+.scroll-arrow.left { left: 6px; }
+.scroll-arrow.right { right: 140px; }
+
+/* CONTROLS */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn{
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+.toggle-tax {
+  padding: 8px 10px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+}
+
+#switchCheckReverse:hover{
+    cursor: pointer;
+    border: 1px;
+}
+/* MOBILE */
+@media (max-width: 768px) {
+  .scroll-arrow {
+    display: none !important;
+  }
+  .filters-scroll{
+    display: none !important;
+  }
+  .PcDrop{
+    display: none !important;
+  }
+}
